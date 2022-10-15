@@ -19,4 +19,10 @@ class ApiController extends Controller
         $tarefas->create($request->all());
         return response()->json('FEITO');
     }
+
+    public function busca($id)
+    {
+        $tarefas =  tarefas::findOrfail($id);
+        return response()->json($tarefas);
+    }
 }
